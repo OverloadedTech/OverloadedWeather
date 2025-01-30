@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨🌪️ HyperAI Weather Oracle 9000 🌡️🤖</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #00f7ff, #a200ff);
+            font-family: 'Comic Sans MS', cursive;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            background: rgba(0,0,0,0.7);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        input {
+            padding: 15px;
+            font-size: 1.5rem;
+            margin: 20px;
+            border: none;
+            border-radius: 50px;
+            text-align: center;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        .loading {
+            display: none;
+            font-size: 1.2rem;
+        }
+
+        .result {
+            display: none;
+            font-size: 2rem;
+            animation: rainbow 2s infinite;
+        }
+
+        @keyframes rainbow {
+            0% { color: red; }
+            25% { color: yellow; }
+            50% { color: lime; }
+            75% { color: cyan; }
+            100% { color: red; }
+        }
+
+        .emoji {
+            font-size: 3rem;
+            margin: 20px;
+        }
+
+        .loading-bar {
+            width: 0%;
+            height: 20px;
+            background: lime;
+            margin: 20px auto;
+            transition: width 2s;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖💨 ULTIMATE AI WEATHER PREDICTOR 9000 ⚡🌎</h1>
+        <p>Powered by Quantum Machine Learning Blockchain Neural Nets 🧠🔗</p>
+        
+        <form id="weatherForm">
+            <input type="text" placeholder="🗺️ Enter Location (or don't, I'm a bot)" required>
+            <button type="submit">🌪️ ANALYZE ATMOSPHERE 🌪️</button>
+        </form>
+
+        <div class="loading">
+            <div class="emoji">🛰️🌤️🔍</div>
+            <div class="loading-bar"></div>
+            <p>Deploying nano-satellites... Calibrating AI neurons... Scanning atmosphere...</p>
+        </div>
+
+        <div class="result">
+            <div class="emoji">🤷♂️🪟🌧️</div>
+            <p>Analysis complete: Just look outside maybe?<br>
+            (This message cost $2M in cloud compute) 💸</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('weatherForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const loading = document.querySelector('.loading');
+            const result = document.querySelector('.result');
+            const loadingBar = document.querySelector('.loading-bar');
+            
+            this.style.display = 'none';
+            loading.style.display = 'block';
+            
+            let progress = 0;
+            const fakeLoad = setInterval(() => {
+                progress += Math.random() * 30;
+                loadingBar.style.width = Math.min(progress, 100) + '%';
+                
+                if(progress >= 100) {
+                    clearInterval(fakeLoad);
+                    loading.style.display = 'none';
+                    result.style.display = 'block';
+                }
+            }, 200);
+
+            const emoji = document.querySelector('.loading .emoji');
+            const emojis = ['🛰️', '🌤️', '🔍', '🤖', '🌀', '🌪️', '📡', '💻'];
+            setInterval(() => {
+                emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)] + 
+                                 emojis[Math.floor(Math.random() * emojis.length)] + 
+                                 emojis[Math.floor(Math.random() * emojis.length)];
+            }, 300);
+        });
+    </script>
+</body>
+</html>
